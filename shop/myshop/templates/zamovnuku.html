@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% load static %}
+<title>
+
+    {% block title %}
+        Наші замовники
+    {% endblock %}
+
+</title>
+
+
+{% block content %}
+
+<section id="team" class="team">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+            <h1>Наші замовники</h1>
+            <p>Magnam dolores commodi suscipit eius consequatur ex aliquid fuga eum quidem</p>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member" data-aos="zoom-in">
+                    <div class="member-img">
+                        <a href="https://www.instagram.com/title_wear/">
+                            <img src="{% static 'img/title.jpeg' %}" class="img-fluid" alt="">
+                            <a/>
+                            <div class="social">
+                                <a href="https://www.instagram.com/title_wear/" class="instagram"><i
+                                        class="bx bxl-instagram"></i></a>
+                            </div>
+                    </div>
+                    <div class="member-info">
+                        <h2>TITLE</h2>
+                        <span>Жіночий одяг</span>
+                        <p>Одяг для дівчат мідл та плюс сайз</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="member-img">
+                        <a href="https://www.instagram.com/room27_/"> <img src="{% static 'img/room.jpeg' %}" class="img-fluid" alt=""><a/>
+                            <div class="social">
+                                <a href="https://www.instagram.com/room27_/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            </div>
+                    </div>
+                    <div class="member-info">
+                        <h2>Room_27</h2>
+                        <span>Дитячий одяг</span>
+                        <p>Створюємо дитячі сукні для свята та прогулянки
+                            фетрові прикраси ручної роботи
+                            Ukraine, Khmelnytskyi</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="member-img">
+                        <a href="https://www.instagram.com/canome.wear/">
+                            <img src="{% static 'img/canome_1.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href="https://www.instagram.com/canome.wear/" class="instagram"><i
+                                        class="bx bxl-instagram"></i></a>
+                            </div>
+                    </div>
+                    <div class="member-info">
+                        <h2>Canome</h2>
+                        <span>Одяг для дому</span>
+                        <p>Комфортний одяг з настроєм жіночності🤍</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

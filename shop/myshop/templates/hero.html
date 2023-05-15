@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<title>
+
+    {% block title %}
+        Made_by_mama
+    {% endblock %}
+
+</title>
+
+
+{% block content %}
+
+<section id="hero" >
+    <div class="hero-container">
+        <a class="hero-logo" data-aos="zoom-in"><img src="{% static 'img/11.png' %}" alt=""></a>
+        <h1 data-aos="zoom-in">Welcome To Made_by_mama</h1>
+        <h2 data-aos="fade-up">Одяг для всієї сімї</h2>
+    </div>
+</section>
+
+{% endblock %}

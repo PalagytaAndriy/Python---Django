@@ -1,0 +1,53 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+<title>
+
+    {% block title %}
+        Made_by_mama
+    {% endblock %}
+
+</title>
+
+
+{% block content %}
+
+<div class="container">
+
+    <div class="section-title" data-aos="fade-up">
+        <h2>About Us</h2>
+        <p>Magnam dolores commodi suscipit eius consequatur</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6" data-aos="fade-right">
+            <img style="max-width: 500px; max-height: 700px;" src="{% static 'img/18.jpg' %}" alt="" class="img-fluid">
+
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+            <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
+                <h3>Voluptatem dignissimos provident quasi corporis</h3>
+                <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore
+                    magna aliqua.
+                </p>
+                <ul>
+                    <li><i class="bx bx-check-double"></i> Шиємо одяг для собачок</li>
+                    <li><i class="bx bx-check-double"></i> Для прогулянок</li>
+                    <li><i class="bx bx-check-double"></i> Піжамки для дому і сну</li>
+                </ul>
+                <p>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate
+                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                    sunt in
+                    culpa qui officia deserunt mollit anim id est laborum
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Оформлення замовлення
+{% endblock %}
+
+{% block content %}
+<section class="mt-5" data-aos="zoom-in" data-aos-delay="300">
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap"
+              rel="stylesheet">
+    </head>
+    <style>
+        .b1p {
+            text-align: center;
+            padding: 40px 0;
+            background: #f5f5eb;
+        }
+
+        .h1p {
+            color: #b04b9a;
+            font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+            font-weight: 900;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .p1p {
+            color: #404F5E;
+            font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 60px;
+            border-radius: 4px;
+            box-shadow: 0 2px 3px #C8D0D8;
+            display: inline-block;
+            margin: 0 auto;
+        }
+    </style>
+    <body class="b1p">
+    <div class="card">
+        <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+            <i style="color: #9ABC66;font-size: 100px;line-height: 200px;margin-left: -15px;" class="checkmark">✓</i>
+        </div>
+        <h1 class="h1p">Замовлення прийняте</h1>
+        <p class="p1p">Наш менеджер зв'яжеться з вами найближчим часом;<br/> Дякуємо за замовлення :)</p>
+    </div>
+    </body>
+
+</section>
+{% endblock %}

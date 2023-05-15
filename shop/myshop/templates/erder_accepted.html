@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Вітаємо</title>
+</head>
+    <body>
+
+            <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Staatliches&display=swap');
+
+            body {
+                font-size: 100px;
+
+                display: grid;
+                place-items: center;
+                height: 100svh;
+
+                background-color: #ffde00;
+
+                background-image: radial-gradient(circle, rgba(0, 0, 100, 0.75) 2px, transparent 2px), radial-gradient(circle, rgba(200, 50, 120, 0.75) 2.5px, transparent 2.5px);
+                background-size: 35px 45px, 35px 45px;
+                background-position: 0px 0px, 1px 1px;
+                background-repeat: repeat;
+            }
+
+            body:has(.small-container) {
+                font-size: 40px;
+            }
+
+            @media only screen and (max-width: 600px) {
+                body {
+                    font-size: 50px;
+                }
+            }
+
+            @media only screen and (max-width: 400px) {
+                body {
+                    font-size: 30px;
+                }
+            }
+
+            .quote {
+            / / position: relative;
+                margin: 0;
+
+                display: grid;
+                place-items: end center;
+                width: 100%;
+                height: 100%;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .quote-attribution {
+                grid-row: 2;
+                grid-column: 1;
+                place-self: end;
+                margin: 0.1em 0.25em;
+                background-color: #ffde00;
+
+                font-family: 'Staatliches';
+            }
+
+            .bam,
+            .pow {
+            / / position: absolute;
+
+                grid-row: 1;
+                grid-column: 1;
+
+                font-size: 1em;
+                font-family: 'Bangers';
+            }
+
+            .bam {
+                animation: pop-out 2s ease-in infinite;
+
+                filter: drop-shadow(2px 2px green);
+            }
+
+            .pow {
+                animation: pop-out 2s 1s ease-in infinite;
+
+                opacity: 0;
+
+                filter:drop-shadow(-2px -2px red);
+            }
+
+            @keyframes pop-out {
+                0% {
+                    transform: scale(1);
+                }
+                10% {
+                    transform: scale(2);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+                60% {
+                    transform: scale(1) rotateZ(720deg);
+                    opacity: 0;
+                }
+                100% {
+                    transform: scale(1) rotateZ(720deg);
+                    opacity: 0;
+                }
+            }
+
+            @media only screen and (max-width: 600px) {
+                @keyframes pop-out {
+                    0% {
+                        transform: scale(1);
+                    }
+                    10% {
+                        transform: scale(2);
+                        opacity: 1;
+                    }
+                    50% {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                    60% {
+                        transform: scale(1);
+                        opacity: 0;
+                    }
+                    100% {
+                        transform: scale(1);
+                        opacity: 0;
+                    }
+                }
+            }
+        </style>
+
+        <blockquote class="quote small-container"  cite="https://www.youtube.com/watch?v=myU81w93Uu4">
+            <span class="bam">Замовлення прийняте</span>
+            <span class="pow">Дякуємо за замовлення</span>
+            <p class="quote-attribution">
+                <a href="/shop" class="button bg-gradient "> <h2>В магазин</h2></a>
+            </p>
+        </blockquote>
+    </body>
+</html>

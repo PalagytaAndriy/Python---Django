@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Замовлення в магазині</title>
+</head>
+<body>
+	<h2>Інформація про замовлення:</h2>
+	<p><strong>Ім'я:</strong> {{ name }}</p>
+	<p><strong>Email:</strong> {{ email }}</p>
+	<p><strong>Телефон:</strong> {{ phone }}</p>
+	<p><strong>Адреса доставки:</strong> {{ address }}</p>
+	<p><strong>Замовлені товари:</strong></p>
+	<ul>
+	{% for item in items %}
+		<li>{{ item.product.name }} - {{ item.quantity }} шт. - {{ item.product.price * item.quantity }} грн.</li>
+	{% endfor %}
+	</ul>
+	<p><strong>Загальна вартість:</strong> {{ total }} грн.</p>
+</body>
+</html>

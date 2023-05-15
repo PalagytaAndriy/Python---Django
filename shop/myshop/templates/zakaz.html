@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<title>
+
+    {% block title %}
+        Оформлення замовлення
+    {% endblock %}
+
+</title>
+
+{% block content %}
+
+<section>
+    <div class="container mt-100" data-aos="zoom-in" data-aos-delay="100">
+        <h1>Оформлення замовлення</h1>
+        <form method="post" action="order_l">
+            {% csrf_token %}
+            <div class="input-group">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Ім'я</span>
+                    <input type="text" id="name" name="name" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" placeholder="введіть ім'я...">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Прізвище</span>
+                    <input type="text" name="s_name" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" placeholder="введіть прізвище...">
+                </div>
+                <div class="input-group mb-3 ">
+                    <span class="input-group-text">Телефон</span>
+                    <input type="tel" name="phone" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" pattern="+[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                           required value="+380">
+                </div>
+                <div class="input-group mb-3 ">
+                    <span class="input-group-text">Email</span>
+                    <input type="email" name="e_email" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default"
+                           placeholder="palch@i.ua">
+                </div>
+            </div>
+
+
+            <div class="mt-5">
+                <h1>Корзина Ваших покупок</h1>
+                <table class="cart mt-5" data-aos="zoom-in" data-aos-delay="700">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    {% for item in cart %}
+                    {% with product=item.product %}
+                    <tr>
+                        <td>
+                            <a href="{{ product.get_absolute_url }}">
+                                <img class="mt-3" style="max-width: 200px; max-height: 200px;"
+                                     src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+                            </a>
+                        </td>
+                        <td>
+                            {{ item.quantity }} шт по :
+                        </td>
+                        <td class="num">{{ item.price }} грн.</td>
+                        <td class="num"> Разом : {{ item.total_price }} грн.</td>
+                    </tr>
+                    {% endwith %}
+                    {% endfor %}
+                    <tr class="total">
+                        <td><h2>Всього :</h2></td>
+                        <td colspan="4"></td>
+                        <td class="num"><h2>{{ cart.get_total_price }} грн</h2></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">
+                Оформити замовлення
+            </button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+  Корзина покупок
+{% endblock %}
+
+{% block content %}
+
+  <h1>Корзина покупок</h1>
+<div class="table-responsive">
+  <table class="table mt-5">
+    <thead class="mt-5">
+      <tr>
+        <th style="padding-right: 70px;">Картинка</th>
+        <th style="padding-right: 30px;">Товар</th>
+        <th style="padding-right: 30px;">Обновити кількість</th>
+        <th style="padding-right: 30px;">Видалити</th>
+        <th style="padding-right: 30px;">Кількість</th>
+        <th style="padding-right: 30px;">Ціна за шт</th>
+        <th style="padding-right: 70px;">Ціна разом</th>
+      </tr>
+    </thead>
+    <tbody class="mt-3" data-aos="zoom-in" data-aos-delay="100">
+      {% for item in cart %}
+        {% with product=item.product %}
+          <tr>
+            <td>
+              <a href="{{ product.get_absolute_url }}">
+                <img  class="mt-3" style="max-width: 300px; max-height: 300px;"
+                     src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+              </a>
+            </td>
+            <td>{{ product.name }}</td>
+            <td>
+              <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                {{ item.update_quantity_form.quantity }}
+                {{ item.update_quantity_form.update }}
+                <input type="submit" value="Обновити">
+                {% csrf_token %}
+              </form>
+            </td>
+            <td><a href="{% url 'cart:cart_remove' product.id %}">Видалити</a></td>
+            <td>
+              {{ item.quantity }}
+            </td>
+            <td class="num">{{ item.price }} грн.</td>
+            <td class="num">{{ item.total_price }} грн.</td>
+          </tr>
+        {% endwith %}
+      {% endfor %}
+      <tr class="total">
+        <td><h2>Все разом :</h2></td>
+        <td colspan="4"></td>
+          <td class="num"><h2>{{ cart.get_total_price }} грн</h2></td>
+      </tr>
+    </tbody>
+  </table>
+    <div/>
+    <div class="justify-content-center">
+        <p>
+            <a href="/shop" class="button bg-gradient "> <h2>В магазин</h2></a>
+        <a href="/zakaz" class="button"><h2>Оформити заказ</h2></a>
+        </p>
+    </div>
+
+{% endblock %}

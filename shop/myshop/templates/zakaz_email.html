@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+    <title>
+        {% block title %}
+            Оформлення замовлення
+        {% endblock %}
+    </title>
+
+{% block content %}
+
+
+    <div class="container mt-5">
+        <h1>Оформлення замовлення</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Ім'я:</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Адреса доставки:</label>
+                <textarea name="address" class="form-control" required></textarea>
+            </div>
+            <button type="submit" name="mail" class="btn btn-primary">Оформити замовлення</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+

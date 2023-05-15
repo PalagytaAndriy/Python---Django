@@ -1,0 +1,33 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="d-flex">
+    <div class="mt-5 p-5">
+        <img style="max-width: 600px; max-height: 600px;"
+             src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+    </div>
+    <div class="mt-5 p-5">
+        <h1>Назва товару : {{ product.name }}</h1>
+        <h2>
+            <a href="{{ product.category.get_absolute_url }}"> Категорія товару : {{ product.category }}</a>
+        </h2>
+        <p class="price mt-5"><h2>Ціна : {{ product.price }} грн.</h2></p>
+        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input type="submit" value="В корзину">
+        </form>
+        <div class="mt-5">
+            <h2>
+                Опис товару :
+            </h2>
+            {{ product.description|linebreaks }}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
